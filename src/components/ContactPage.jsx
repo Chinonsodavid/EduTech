@@ -16,26 +16,35 @@ export default function ContactPage() {
     e.preventDefault();
     setLoading(true);
 
+    const templateParams = {
+      from_name: formData.name, 
+      reply_to: formData.email,  
+      message: formData.message, 
+    };
+
     emailjs.send(
-      "your_service_id",
-      "your_template_id",
-      formData,
-      "your_public_key"
-    ).then(() => {
+      "service_57fvwhd",  
+      "template_ho4amnr",  
+      templateParams,
+      "jODZ1RCIh1RdFopBZ"  
+    )
+    .then(() => {
       toast.success("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
-    }).catch(() => {
+    })
+    .catch(() => {
       toast.error("Failed to send message.");
-    }).finally(() => {
+    })
+    .finally(() => {
       setLoading(false);
     });
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-12 bg-white shadow-lg rounded-lg  grid md:grid-cols-2 gap-6 mt-44 ">
+    <div className="max-w-5xl mx-auto p-12 bg-white shadow-lg rounded-lg grid md:grid-cols-2 gap-6 mt-44">
       {/* Left Side - Contact Details */}
       <div className="space-y-6">
-        <h2 className="text-3xl font-bold text-gray-800">Get in Touch</h2>
+        <h2 className="text-3xl font-medium text-gray-800">Get in Touch</h2>
         <p className="text-gray-600">We’d love to hear from you! Reach out with any questions or feedback.</p>
         <div className="space-y-4">
           <p className="flex items-center gap-2 text-blue-600"><FaEnvelope /> support@edutech.com</p>
