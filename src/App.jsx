@@ -15,6 +15,7 @@ import About from "./components/About";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import ContactPage from "./components/ContactPage";
+import Chatbot from "./components/Chatbot";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <ToastContainer position="top-center" autoClose={3000} />
       <Router>
         <MainLayout />
+        <Chatbot />
       </Router>
     </>
   );
